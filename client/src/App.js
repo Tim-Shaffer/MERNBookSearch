@@ -5,6 +5,7 @@ import Wrapper from "./components/Wrapper";
 import Navbar from "./components/Navbar";
 import Jumbotron from "./components/Jumbotron";
 import Footer from "./components/Footer";
+import SearchForm from "./components/Searchform";
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
       <Wrapper>
         <Navbar />
         <Jumbotron />
+        <SearchForm />
         <Footer />
       </Wrapper>
     );
