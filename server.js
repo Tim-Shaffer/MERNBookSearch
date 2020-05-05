@@ -17,9 +17,6 @@ if (process.env.NODE_ENV === "production") {
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/googlebooks";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true } );
 
-// require the controller file
-require("./controllers/books_controller.js")(app);
-
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
