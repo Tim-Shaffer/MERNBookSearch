@@ -42,7 +42,7 @@ module.exports = function(app) {
   });
 
   // GET route for scraping the www.inquirer.com/ website
-  app.get("/scrape", function(req, res) {
+  app.get("/", function(req, res) {
 
     // grab the body of the html with axios
     axios.get("http://www.inquirer.com/").then(function(response) {
