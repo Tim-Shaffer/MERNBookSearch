@@ -2,6 +2,7 @@
     background-color: #7ED5EA;
     color: white;
     padding: 1rem;
+    padding-bottom: 2rem;
     margin: 1rem;
     border: 2px solid white;
   }
@@ -12,4 +13,9 @@
 
   .searchform h1 {
     text-align: left;
+  }
+
+  .searchBtn {
+    float: right;
+    margin: .25rem;
   }
