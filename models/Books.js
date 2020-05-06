@@ -35,4 +35,4 @@ var BookSchema = new Schema({
 var Book = mongoose.model("Book", BookSchema);
 
 // Export the Book model
-module.exports = ;
+module.exports = Book;
