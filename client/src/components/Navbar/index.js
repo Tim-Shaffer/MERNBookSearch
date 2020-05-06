@@ -10,10 +10,10 @@ function Navbar(props) {
                     <a className="nav-link" href="/">Google Books</a>
                 </li>
                 <li className="nav-item text-white">
-                    <a className="nav-link" href="/">Search</a>
+                    <a className="nav-link" href="/search">Search</a>
                 </li>
                 <li className="nav-item text-white">
-                    <a className="nav-link" href="/">Saved</a>
+                    <a className="nav-link" href="/saved">Saved</a>
                 </li>
             </ul>
         </div>

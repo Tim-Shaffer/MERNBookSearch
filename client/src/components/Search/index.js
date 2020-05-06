@@ -74,7 +74,8 @@ class Search extends Component {
                           <strong>{book.title}</strong>
                         </a>
                         <br />
-                        {book.description}
+                        <img src={book.image} alt={book.id} className="img img-thumbnail img-responsive float-left"></img>
+                        <p>{book.description}</p>
                       </ListItem>)}
                   </List>
                 </div> : <h3>{this.state.searchClicked ? 'No Results Found' : ''} </h3>}

@@ -11,6 +11,8 @@ const App = () =>
       <Navbar />
       <Switch>
         <Route exact path="/" component={Main} />
+        <Route exact path="/search" component={Main} />
+        <Route exact path="/saved" component={Main} />
         <Route component={NoMatch} />
       </Switch>
       <Footer />
