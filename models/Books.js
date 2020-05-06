@@ -9,7 +9,8 @@ var BookSchema = new Schema({
 
   title: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   authors: {
     type: String,
@@ -25,8 +26,7 @@ var BookSchema = new Schema({
   },
   link: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   }
   
 });
