@@ -7,26 +7,23 @@ var Schema = mongoose.Schema;
 // Create a new BookSchema object
 var BookSchema = new Schema({
 
-  title: {
+  id: {
     type: String,
     required: true,
     unique: true
   },
-  authors: {
-    type: String,
-    required: true
+  title: {
+    type: String    
   },
+  authors: [String],
   description: {
-    type: String,
-    required: true
+    type: String
   },
   image: {
-    type: String,
-    required: true,
+    type: String
   },
   link: {
-    type: String,
-    required: true
+    type: String
   }
   
 });

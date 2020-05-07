@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { Col, Row, Container } from "../../components/Grid";
-import { Input, FormBtn } from "../../components/Form";
-import { List, ListItem } from "../../components/List";
+import { Col, Row, Container } from "../Grid";
+import { Input, FormBtn } from "../Form";
+import { List, ListItem } from "../List";
+import SaveBtn from "../SaveBtn"
+import ViewBtn from "../ViewBtn";
 import "./style.css";
 import API from "../../utils/API";
 
@@ -44,6 +46,16 @@ class Search extends Component {
       
   };
 
+  addBook = (book) => {
+    console.log("Button clicked");
+    console.log(book);
+    API.saveBook(book)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <Container>
@@ -70,13 +82,20 @@ class Search extends Component {
                   <h2>Results</h2>
                   <List>
                     {this.state.books.map(book => <ListItem key={book.id}>
-                        <a target="_blank" href={book.link} rel="noopener">
-                          <strong>{book.title}</strong>
-                        </a>
+                      <Row>
+                        <Col size="md-8">
+                          <h3>{book.title}</h3>
+                          <h6>Written By: {book.authors.map(author => book.authors.length - 1 === book.authors.indexOf(author) ? author : author + ", ")} </h6>
+                        </Col>
+                        <Col size="md-4">
+                          <SaveBtn onClick={() => this.addBook(book)}/>
+                          <ViewBtn href={book.link}/>
+                        </Col>
+                      </Row>
                         <br />
                         <img src={book.image} alt={book.id} className="img img-thumbnail img-responsive float-left"></img>
                         <p>{book.description}</p>
-                      </ListItem>)}
+                    </ListItem>)}  
                   </List>
                 </div> : <h3>{this.state.searchClicked ? 'No Results Found' : ''} </h3>}
             </Col>
