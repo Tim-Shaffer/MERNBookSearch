@@ -7,6 +7,8 @@ import ViewBtn from "../ViewBtn";
 import "./style.css";
 import API from "../../utils/API";
 
+import Saved from "../Saved";
+
 class Search extends Component {
   
   state = {
@@ -40,19 +42,14 @@ class Search extends Component {
           })
       }
       this.setState({ books: searchBooks, search: ""});
-      console.log(this.state.books)
     })
     .catch(err => console.log(err));
       
   };
 
   addBook = (book) => {
-    console.log("Button clicked");
-    console.log(book);
     API.saveBook(book)
-    .then(res => {
-      console.log(res);
-    })
+    .then(res => <Saved />)
     .catch(err => console.log(err));
   };
 
@@ -78,7 +75,7 @@ class Search extends Component {
         <Container fluid>
           <Row>
             <Col size="md-12">
-              {this.state.books.length ? <div>
+              {this.state.books.length > 0 ? <div>
                   <h2>Results</h2>
                   <List>
                     {this.state.books.map(book => <ListItem key={book.id}>
@@ -97,7 +94,11 @@ class Search extends Component {
                         <p>{book.description}</p>
                     </ListItem>)}  
                   </List>
-                </div> : <h3>{this.state.searchClicked ? 'No Results Found' : ''} </h3>}
+                </div> 
+              : <div>
+                  <h2>Search For Some Books!</h2>
+                </div>
+              }
             </Col>
           </Row>
         </Container>
