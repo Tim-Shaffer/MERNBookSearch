@@ -3,21 +3,18 @@ import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
 import ViewBtn from "../ViewBtn";
 import API from "../../utils/API";
-import Wrapper from "../Wrapper";
-import Header from "../Header";
 
-class Search extends Component {
+class Saved extends Component {
   
   state = {
-    books: [],
+    books: []
   };
 
   componentDidMount() {
-    this.loadBooks();
+    this.loadBooks()
   }
 
   loadBooks = () => {
-    console.log("Trying to load the saved books");
     API.savedBooks()
       .then(res =>
         this.setState({ books: res.data})
@@ -25,11 +22,10 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
+
   render() {
     return (
-      <Wrapper>
-        <Header />
-        <Container>
+      <Container>
           <Container fluid>
             <Row>
               <Col size="md-12">
@@ -59,11 +55,10 @@ class Search extends Component {
               </Col>
             </Row>
           </Container>
-        </Container>
-      </Wrapper>
+      </Container>
     );
   }
 
 }
 
-export default Search;
+export default Saved;
