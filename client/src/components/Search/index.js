@@ -6,6 +6,7 @@ import SaveBtn from "../SaveBtn"
 import ViewBtn from "../ViewBtn";
 import "./style.css";
 import API from "../../utils/API";
+import Footer from "../Footer";
 
 import Saved from "../Saved";
 
@@ -54,8 +55,10 @@ class Search extends Component {
   };
 
   render() {
+    let setSticky = this.state.books.length > 0 ? "" : "sticky";
     return (
-      <Container>
+      <>
+      <Container fluid>
         <Container fluid searchform>  
           <Row>
             <Col size="md-12">
@@ -72,7 +75,7 @@ class Search extends Component {
           </Row>
         </Container>
 
-        <Container fluid>
+        <Container fluid> 
           <Row>
             <Col size="md-12">
               {this.state.books.length > 0 ? <div>
@@ -95,14 +98,18 @@ class Search extends Component {
                     </ListItem>)}  
                   </List>
                 </div> 
-              : <div>
+              : 
+                <div>
                   <h2>Search For Some Books!</h2>
                 </div>
+                
               }
             </Col>
           </Row>
         </Container>
       </Container>
+      <Footer sticky={setSticky}/>
+      </>
     );
   }
 

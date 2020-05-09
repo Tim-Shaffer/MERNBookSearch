@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Search from "./components/Search";
 import Saved from "./components/Saved";
 import NoMatch from "./pages/NoMatch";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 
 const App = () =>
   <Router>
@@ -18,7 +18,7 @@ const App = () =>
         <Route path="/saved" component={Saved} />
         <Route component={NoMatch} />
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   </Router>;
 

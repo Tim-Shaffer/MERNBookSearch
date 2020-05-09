@@ -1,9 +1,12 @@
 .footer {
-    border-top: 8px solid #3778C2;
-    background-color: #150734;
-    color: #7ED5EA;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
+  border-top: 8px solid #3778C2;
+  background-color: #150734;
+  color: #7ED5EA;
+  text-align: center;
+}
+
+.sticky {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
