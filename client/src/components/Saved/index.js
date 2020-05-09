@@ -4,6 +4,7 @@ import { List, ListItem } from "../List";
 import ViewBtn from "../ViewBtn";
 import API from "../../utils/API";
 import Footer from "../Footer";
+import DeleteBtn from "../DeleteBtn";
 
 class Saved extends Component {
   
@@ -23,9 +24,15 @@ class Saved extends Component {
       .catch(err => console.log(err));
   };
 
+  deleteBook = id => {
+    API.deleteBook(id)
+      .then(res => this.loadBooks())
+      .catch(err => console.log(err));
+  };
+
 
   render() {
-    let setSticky = this.state.books.length > 0 ? "" : "sticky";
+    let setSticky = this.state.books.length > 1 ? "" : "sticky";
     return (
       <>
       <Container fluid>
@@ -42,6 +49,7 @@ class Saved extends Component {
                           <h6>Written By: {book.authors.map(author => book.authors.length - 1 === book.authors.indexOf(author) ? author : author + ", ")} </h6>
                         </Col>
                         <Col size="md-4">
+                          <DeleteBtn onClick={() => this.deleteBook(book._id)} />
                           <ViewBtn href={book.link}/>
                         </Col>
                       </Row>
