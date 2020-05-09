@@ -1,4 +1,12 @@
 .view-btn {
   float: right;
-  color: #3778C2;
+  background-color: #1D1D2C;
+}
+
+.a {
+  color: #EBA63F;
+}
+
+.btn {
+  margin: .25rem;
 }
