@@ -20,6 +20,16 @@ app.use(routes);
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/googlebooks";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true } );
 
-app.listen(PORT, () => {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
+// app.listen(PORT, () => {
+//   console.log(`🌎 ==> API server now on port ${PORT}!`);
+// });
+
+// socket io code
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+io.on('connection', (client) => { 
+  /* Emit events to the client */ 
+});
+server.listen(PORT, () => {
+    console.log(`🌎 ==> API server now on port ${PORT}!`);
 });

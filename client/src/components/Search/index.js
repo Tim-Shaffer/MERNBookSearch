@@ -8,7 +8,6 @@ import "./style.css";
 import API from "../../utils/API";
 import Footer from "../Footer";
 
-import Saved from "../Saved";
 
 class Search extends Component {
   
