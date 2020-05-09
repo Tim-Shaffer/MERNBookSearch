@@ -48,9 +48,13 @@ class Search extends Component {
       
   };
 
-  addBook = (book) => {
-    API.saveBook(book)
-    .then(res => <Saved />)
+  addBook = (addBook) => {
+    const searchBooks = this.state.books;
+    const newBooks = searchBooks.filter(book => book.id != addBook.id);
+    API.saveBook(addBook)
+    .then(res => {
+      this.setState({ books: newBooks });
+    })
     .catch(err => console.log(err));
   };
 
