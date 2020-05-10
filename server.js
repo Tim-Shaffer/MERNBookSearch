@@ -27,9 +27,18 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true } );
 // socket io code
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
-io.on('connection', (client) => { 
+
+io.on('connection', (socket) => { 
   /* Emit events to the client */ 
+  console.log('a user connected');
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+  socket.on('savedBook', data => {
+    console.log(data);
+  });
 });
+
 server.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
 });

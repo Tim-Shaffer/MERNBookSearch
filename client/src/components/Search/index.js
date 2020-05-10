@@ -8,7 +8,6 @@ import "./style.css";
 import API from "../../utils/API";
 import Footer from "../Footer";
 
-
 class Search extends Component {
   
   state = {
@@ -51,7 +50,7 @@ class Search extends Component {
     const searchBooks = this.state.books;
     API.saveBook(addBook)
     .then(res => {
-      const newBooks = searchBooks.filter(book => book.id != addBook.id);
+      const newBooks = searchBooks.filter(book => book.id !== addBook.id);
       this.setState({ books: newBooks });
     })
     .catch(err => console.log(err));
