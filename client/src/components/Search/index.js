@@ -52,6 +52,7 @@ class Search extends Component {
     .then(res => {
       const newBooks = searchBooks.filter(book => book.id !== addBook.id);
       this.setState({ books: newBooks });
+      // add something in here to trigger socket.io of the savedBook event **
     })
     .catch(err => console.log(err));
   };

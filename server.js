@@ -24,19 +24,17 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true } );
 //   console.log(`🌎 ==> API server now on port ${PORT}!`);
 // });
 
-// socket io code
+// socket io code 
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
-io.on('connection', (socket) => { 
+io.on('connection', (client) => { 
   /* Emit events to the client */ 
   console.log('a user connected');
-  socket.on('disconnect', () => {
+  client.on('disconnect', () => {
     console.log('user disconnected');
   });
-  socket.on('savedBook', data => {
-    console.log(data);
-  });
+  // identify the msg triggered by the savedBook event
 });
 
 server.listen(PORT, () => {
